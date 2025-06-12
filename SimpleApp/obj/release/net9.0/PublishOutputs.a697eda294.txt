@@ -1,0 +1,7 @@
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\SimpleApp.exe
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\appsettings.Development.json
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\appsettings.json
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\SimpleApp.dll
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\SimpleApp.deps.json
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\SimpleApp.runtimeconfig.json
+C:\Users\lenovo\Az-204\SimpleApp\bin\publish\SimpleApp.pdb
