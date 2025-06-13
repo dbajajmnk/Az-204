@@ -53,3 +53,30 @@
         - Move the files of app from local publish folder to ISS Website folder for port 80
         - Just copied the files and paste into website folder on your VM
         - Test your app by opening public IP of your VM on your browser.
+## Setup up Linux VM and Install App
+- Create VM on Azure
+  - Unbuntu Server 22.04 LTS-64 Gen2
+  - Select B1 with 1Gb Ram
+  - Go with User name and password
+- Login on your VM
+  - With Terminal 
+    - Open terminal
+    - Use ssh username@vmip address click
+    - it's will ask you for password enter password which you will set for VM
+  - With [Putty](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+    - Download putty
+    - Enter required detail like public ip address and password
+  - Install Server
+    - sudo apt update : update the packages on VM operating system
+    - sudo apt install appache2
+    - sudo apt install php libapache2-mod-php : Required php modules
+    - set http inbound rule for port 80
+  - Check the app on local 
+    - Abstract the application on your local system
+  - Deployment on Server
+    - path var/www/html
+    - change permisison : sudo chmod 777 /var/www/html
+    - Download [filezilla](https://filezilla-project.org/download.php?type=client) and install
+    - Move your application code from your local to server
+    - Create a new new from Server manager on filezill and fill VM credential for SSH
+    - Test use ipaddress/index.php
