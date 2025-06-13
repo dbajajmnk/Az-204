@@ -1,0 +1,55 @@
+## How to deploy the App microsoft app on Azure 
+- Local Setup
+  - Install dotnet on your machine
+  - Install Vs Code and configuration
+    - Install Extension called C# Dev Kit
+    - Install Extension called .Net Install Tool
+    - Install Extension called .Net Extension Pack
+    - Install Extension called C#
+  - Create new .net web app
+    - Press Shift+Ctl+P on VS Code
+      - Select .Net new Project press endter
+        - From there select Asp.net core web application with Razor pages press enter
+        - After sometime app code is available in vs code
+        - open the app folder into terminal and use the command to run the app on local
+          - dotnet run 
+      - To publish the we need to use following command
+        - dotnet publish -c release - o ./bin/publish
+    - Deploy App on Azure VM
+      - Go to Azure and select VM Service
+      - Follow the Wizard to install the VM
+        - WindowServer DataCenter 2022 BS2 : Because we require more CPU and Ram Size
+        - Disable Zone 
+      - Connect 
+        - Open VM page on Azure
+        - Click on Connect option
+        - You will get opiton to download RDP file
+        - Open the RDP file enter the password which you used while creating a VM
+        - You are able to see your Window server running
+      - Install IIS
+        - Click on Add Roles option from Server Manager Window
+        - Follow the Wizard to add IIS from given list
+        - Go to your VM  home page select copy the local public address and check in your system browser
+        - You are able to see IIS defult page
+      - Configure Sever to Run Web App 
+        - Enable Download from Edge on VM Machine Need to off the Local Server IE Enachanced Security Configuration Off By Default It's on
+        - Download and Install [.Net](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-9.0.301-windows-x64-installer) as your Local 
+        - Download and Install [Hosting Bundle](https://dotnet.microsoft.com/permalink/dotnetcore-current-windows-runtime-bundle-installer).
+        - Add Inbound port rule for Http and port 80
+        - Web Configuration
+          - Change Default website Binding and use another port
+          - Create a new website and refer any pysical folder  on your vm
+      - Local Setup to Publish
+          - Assign local Directory to VM by RDP File
+              - Right click RDP File and Click on Edit
+              - Select Local Resource Tab
+              - Click on More
+              - Select Drivers
+              - Select C Driver
+              - Click on Connect
+      - Create Build on Local and Pubblish
+        - In vs code create a release build of your app with following command
+        - dotnet publish  c release o /bin/publish
+        - Move the files of app from local publish folder to ISS Website folder for port 80
+        - Just copied the files and paste into website folder on your VM
+        - Test your app by opening public IP of your VM on your browser.
